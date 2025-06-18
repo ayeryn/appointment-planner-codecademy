@@ -10,7 +10,7 @@ export const ContactsPage = ({ contacts, addContact }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addContact({ name, phone, email });
+    addContact(name, phone, email);
   };
 
   useEffect(() => {}, [name]);
