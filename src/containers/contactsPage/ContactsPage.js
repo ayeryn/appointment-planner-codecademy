@@ -11,9 +11,17 @@ export const ContactsPage = ({ contacts, addContact }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addContact(name, phone, email);
+    setName("");
+    setPhone("");
+    setEmail("");
   };
 
-  useEffect(() => {}, [name]);
+  useEffect(() => {
+    const dupeArr = contacts.filter((contact) => contact.name === name);
+    if (dupeArr.length > 0) {
+      alert("This name already exists! Try something else...");
+    }
+  }, [name]);
 
   return (
     <div>
